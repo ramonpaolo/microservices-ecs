@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+    books:
+        build: 
+            context: .
+            dockerfile: ./docker/books.dockerfile
+        container_name: books_container_test_microservices
+        image: r4deu51/books_test_microservices
+        networks:
+            - network
+        restart: always
+
+    authors:
+        build: 
+            context: .
+            dockerfile: ./docker/authors.dockerfile
+        container_name: authors_container_test_microservices
+        image: r4deu51/authors_test_microservices
+        networks:
+            - network
+        restart: always
+
+    rabbitmq:
+        build: 
+            context: .
+            dockerfile: ./docker/rabbitmq.dockerfile
+        container_name: rabbitmq_container_test_microservices
+        image: r4deu51/rabbitmq_test_microservices
+        networks:
+            - network
+        restart: always
+
+    nginx:
+        build: 
+            context: .
+            dockerfile: ./docker/nginx.dockerfile
+        container_name: nginx_container_test_microservices
+        image: r4deu51/nginx_test_microservices
+        networks:
+            - network
+        restart: always
+        ports:
+          - "80:80"
+
+    mongodb:
+        build: 
+            context: .
+            dockerfile: ./docker/mongodb.dockerfile
+        container_name: mongodb_container_test_microservices
+        image: r4deu51/mongodb_test_microservices
+        networks:
+            - network
+        restart: always
+
+networks:
+    network:
+        driver: bridge
