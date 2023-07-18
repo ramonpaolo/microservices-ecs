@@ -18,7 +18,7 @@
     "express-rate-limit": "^6.4.0",
     "ioredis": "^5.0.5",
     "jest": "^28.1.0",
-    "mongoose": "^6.3.4",
+    "mongoose": "^6.11.3",
     "pg": "^8.7.3",
     "sequelize": "^6.19.2",
     "serve-favicon": "^2.5.0",
